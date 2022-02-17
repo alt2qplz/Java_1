@@ -7,7 +7,6 @@ public class Road implements Obstacle {
     this.length = length;
   }
 
-
   @Override
   public boolean overcome(Runnable obj) {
     return obj.run(this);
