@@ -1,11 +1,11 @@
 package ru.savelichev.homework2;
 
-public class Runner implements Runnable{
+public abstract class AbstractRunner implements Runnable{
   private final String name;
   private final int maxRunLength;
   private final int maxJumpHeight;
 
-  public Runner(String name, int maxRunLength, int maxJumpHeight) {
+  public AbstractRunner(String name, int maxRunLength, int maxJumpHeight) {
     this.name = name;
     this.maxRunLength = maxRunLength;
     this.maxJumpHeight = maxJumpHeight;
@@ -15,7 +15,7 @@ public class Runner implements Runnable{
     return name;
   }
 
-  public boolean run(Road road) {
+  public final boolean run(Road road) {
     if (road.length <= maxRunLength) {
       System.out.println(name + " преодолел дистанцию в " + road.length );
       return true;
@@ -25,7 +25,7 @@ public class Runner implements Runnable{
     }
   }
 
-  public boolean jump(Wall wall) {
+  public final boolean jump(Wall wall) {
     if (wall.height <= maxJumpHeight) {
       System.out.println(name + " преодолел высоту в " + wall.height );
       return true;
